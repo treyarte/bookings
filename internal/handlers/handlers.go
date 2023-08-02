@@ -6,9 +6,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/treyarte/bookings/pkg/config"
-	"github.com/treyarte/bookings/pkg/models"
-	"github.com/treyarte/bookings/pkg/render"
+	"github.com/treyarte/bookings/internal/config"
+	"github.com/treyarte/bookings/internal/forms"
+	"github.com/treyarte/bookings/internal/models"
+	"github.com/treyarte/bookings/internal/render"
 )
 
 //Repo the repository used by the handlers
@@ -54,8 +55,14 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
 }
 
-//Generals renders the generals page
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, r, "generals.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+	})
+}
+
+//PostReservation posting of a reservation form
+func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "generals.page.tmpl", &models.TemplateData{})
 }
 

@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 
 	"github.com/justinas/nosurf"
-	"github.com/treyarte/bookings/pkg/config"
-	"github.com/treyarte/bookings/pkg/models"
+	"github.com/treyarte/bookings/internal/config"
+	"github.com/treyarte/bookings/internal/models"
 )
 
 var app *config.AppConfig
